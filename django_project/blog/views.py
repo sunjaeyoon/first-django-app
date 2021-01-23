@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 # Create your views here.
 post =[
@@ -25,7 +26,7 @@ post =[
 
 def home(request):
     context = {
-        'posts': post
+        'posts': Post.objects.all() #post
     }
     return render(request, 'blog/home.html', context)
 
