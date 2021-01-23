@@ -7,7 +7,7 @@ from .models import Post, Event
 def home(request):
     context = {
         'posts': Post.objects.all(), #post
-        'events': Events.objects.all()
+        'events': Event.objects.all()
     }
     return render(request, 'blog/home.html', context)
 
