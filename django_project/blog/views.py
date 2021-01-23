@@ -6,7 +6,7 @@ from .models import Post, Event
 
 def home(request):
     context = {
-        'posts': Post.objects.all(), #post
+        'posts': Post.objects.order_by('-date_posted'), #post
         'events': Event.objects.all()
     }
     return render(request, 'blog/home.html', context)
