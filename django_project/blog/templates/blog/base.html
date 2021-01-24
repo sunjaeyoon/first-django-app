@@ -20,7 +20,7 @@
     {% if title %}
         <title>Blog Home - {{ title }}</title>
     {% else %}
-        <title>Blog Home</title>
+        <title>Blog</title>
     {% endif %}
 </head>
 <body>
@@ -37,6 +37,13 @@
         </nav>
     </div>
     <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif%}
         {% block content %} {% endblock %}
     </div>
 </body>
